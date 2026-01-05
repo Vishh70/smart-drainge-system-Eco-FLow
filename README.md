@@ -1,9 +1,3 @@
-Perfect 👍
-Below is a **clean, professional, easy-to-understand README / project description** for your **Smart Drainage System – EcoFlow**, written in **simple English**, **well structured**, and with **nice emojis**, just like your screenshot.
-You can **directly paste this on GitHub README.md or use it in PPT / report**.
-
----
-
 # 🌧️ Smart Drainage System – *EcoFlow Solution*
 
 ## 🚀 Overview
