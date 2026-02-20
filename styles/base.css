@@ -1,9 +1,15 @@
 @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap");
 
-* {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 html,
@@ -16,32 +22,36 @@ body {
   font-size: var(--fs-md);
   line-height: var(--lh-body);
   color: var(--text-body);
-  background:
-    radial-gradient(circle at 8% 12%, rgba(15, 108, 143, 0.16), transparent 36%),
-    radial-gradient(circle at 92% 4%, rgba(255, 143, 31, 0.14), transparent 30%),
-    linear-gradient(155deg, var(--bg-0), var(--bg-1));
+  background-color: var(--bg-0);
+  background-image:
+    radial-gradient(ellipse at 10% 8%, rgba(10, 126, 164, 0.12), transparent 44%),
+    radial-gradient(ellipse at 88% 5%, rgba(255, 138, 43, 0.10), transparent 38%),
+    radial-gradient(ellipse at 50% 95%, rgba(10, 126, 164, 0.06), transparent 50%);
+  background-attachment: fixed;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* ── Custom Scrollbar ── */
 ::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  width: 7px;
+  height: 7px;
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--bg-1);
+  background: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(15, 108, 143, 0.45);
-  border-radius: 99px;
+  background: rgba(10, 126, 164, 0.35);
+  border-radius: var(--radius-pill);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--brand);
+  background: rgba(10, 126, 164, 0.55);
 }
 
+/* ── Typography ── */
 h1,
 h2,
 h3,
@@ -77,29 +87,34 @@ input:focus-visible,
 button:focus-visible,
 select:focus-visible,
 a:focus-visible {
-  outline: 3px solid rgba(255, 168, 77, 0.7);
+  outline: 2px solid var(--brand);
   outline-offset: 2px;
 }
 
+/* ── App Shell Layout ── */
 .app-shell {
   min-height: 100vh;
   display: grid;
   grid-template-columns: var(--sidebar-width) 1fr;
 }
 
+/* ── Sidebar ── */
 .sidebar {
-  background: linear-gradient(180deg, #051d2a 0%, var(--sidebar-bg) 65%, #0a3b54 100%);
+  background: linear-gradient(172deg, #041820 0%, var(--sidebar-bg) 50%, #093044 100%);
   color: var(--sidebar-text);
-  padding: var(--space-6) var(--space-4);
+  padding: var(--space-6) var(--space-4) var(--space-4);
   position: sticky;
   top: 0;
   height: 100vh;
   z-index: 100;
-  box-shadow: inset -1px 0 0 rgba(255, 255, 255, 0.06);
+  overflow-y: auto;
+  border-right: 1px solid rgba(255, 255, 255, 0.04);
+  box-shadow: 4px 0 24px rgba(4, 24, 32, 0.35);
 }
 
 .main-pane {
   width: 100%;
+  min-width: 0;
 }
 
 .content-wrap {
@@ -108,6 +123,7 @@ a:focus-visible {
   padding: var(--space-5);
 }
 
+/* ── A11y ── */
 .sr-only {
   position: absolute;
   width: 1px;
@@ -119,6 +135,7 @@ a:focus-visible {
   border: 0;
 }
 
+/* ── Responsive ── */
 @media (max-width: 1024px) {
   .app-shell {
     grid-template-columns: 1fr;
@@ -128,7 +145,7 @@ a:focus-visible {
     position: fixed;
     width: min(88vw, 340px);
     transform: translateX(-102%);
-    transition: transform 260ms ease;
+    transition: transform 300ms var(--ease-smooth);
     box-shadow: var(--shadow-lg);
   }
 
@@ -136,7 +153,16 @@ a:focus-visible {
     transform: translateX(0);
   }
 
+  body.sidebar-open::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: rgba(4, 24, 32, 0.45);
+    z-index: 99;
+    animation: fade-in 200ms ease;
+  }
+
   .content-wrap {
-    padding: var(--space-4);
+    padding: var(--space-3);
   }
 }

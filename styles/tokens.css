@@ -1,59 +1,86 @@
 :root {
-  --bg-0: #f2f5f7;
-  --bg-1: #e6edf1;
+  /* ── Primary Palette ── */
+  --bg-0: #f0f4f8;
+  --bg-1: #dce5ee;
   --surface-0: #ffffff;
-  --surface-1: #f8fbfd;
-  --surface-2: #dfe8ee;
+  --surface-1: #f6f9fc;
+  --surface-2: #e2eaf1;
 
-  --sidebar-bg: #072b3f;
-  --sidebar-text: #d7e7f0;
-  --sidebar-active: #0e4f6b;
-  --sidebar-hover: rgba(255, 255, 255, 0.08);
+  /* ── Sidebar ── */
+  --sidebar-bg: #06202e;
+  --sidebar-text: #c8dce8;
+  --sidebar-active: #0d4b68;
+  --sidebar-hover: rgba(255, 255, 255, 0.06);
 
-  --brand: #0f6c8f;
-  --brand-strong: #0a5672;
-  --accent: #ff8f1f;
-  --accent-strong: #d86f00;
+  /* ── Brand Teal + Orange Accent ── */
+  --brand: #0a7ea4;
+  --brand-light: #12a6d6;
+  --brand-strong: #075e7d;
+  --brand-glow: rgba(10, 126, 164, 0.22);
+  --accent: #ff8a2b;
+  --accent-strong: #e06d00;
+  --accent-glow: rgba(255, 138, 43, 0.18);
 
-  --text-strong: #122630;
-  --text-body: #27414f;
-  --text-muted: #5e7682;
-  --text-on-dark: #edf5fa;
+  /* ── Text ── */
+  --text-strong: #0a1f2e;
+  --text-body: #2f4858;
+  --text-muted: #627d8e;
+  --text-on-dark: #e8f2f8;
 
-  --ok: #1a8d57;
-  --warn: #d58a00;
-  --crit: #c63a33;
-  --info: #1d75b8;
+  /* ── Semantic Status ── */
+  --ok: #0fa958;
+  --ok-bg: #e4f9ee;
+  --warn: #e69500;
+  --warn-bg: #fff4db;
+  --crit: #d92f28;
+  --crit-bg: #ffe3e1;
+  --info: #1881cb;
 
-  --radius-sm: 8px;
-  --radius-md: 14px;
-  --radius-lg: 22px;
+  /* ── Radius ── */
+  --radius-xs: 6px;
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-pill: 999px;
 
+  /* ── Spacing ── */
   --space-1: 6px;
   --space-2: 10px;
   --space-3: 14px;
-  --space-4: 18px;
-  --space-5: 24px;
-  --space-6: 32px;
+  --space-4: 20px;
+  --space-5: 28px;
+  --space-6: 36px;
 
-  --shadow-sm: 0 2px 6px rgba(8, 27, 39, 0.08);
-  --shadow-md: 0 10px 24px rgba(8, 27, 39, 0.12);
-  --shadow-lg: 0 18px 44px rgba(8, 27, 39, 0.18);
+  /* ── Shadows ── */
+  --shadow-xs: 0 1px 3px rgba(6, 32, 46, 0.05);
+  --shadow-sm: 0 2px 8px rgba(6, 32, 46, 0.07);
+  --shadow-md: 0 8px 24px rgba(6, 32, 46, 0.10);
+  --shadow-lg: 0 20px 48px rgba(6, 32, 46, 0.14);
+  --shadow-glow: 0 0 20px rgba(10, 126, 164, 0.15);
 
-  --sidebar-width: 280px;
-  --max-width: 1600px;
+  /* ── Layout ── */
+  --sidebar-width: 270px;
+  --max-width: 1560px;
 
-  --font-display: "Space Grotesk", "Segoe UI", sans-serif;
-  --font-body: "IBM Plex Sans", "Segoe UI", sans-serif;
+  /* ── Typography ── */
+  --font-display: "Space Grotesk", "Segoe UI", system-ui, sans-serif;
+  --font-body: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", "Cascadia Code", "Consolas", monospace;
 
+  --fs-2xs: 0.7rem;
   --fs-xs: 0.78rem;
-  --fs-sm: 0.9rem;
+  --fs-sm: 0.88rem;
   --fs-md: 1rem;
-  --fs-lg: 1.2rem;
-  --fs-xl: 1.5rem;
-  --fs-2xl: 2rem;
+  --fs-lg: 1.18rem;
+  --fs-xl: 1.48rem;
+  --fs-2xl: 1.9rem;
+  --fs-3xl: 2.4rem;
 
   --lh-tight: 1.2;
-  --lh-body: 1.5;
-  --lh-relaxed: 1.65;
+  --lh-body: 1.55;
+  --lh-relaxed: 1.7;
+
+  /* ── Transition ── */
+  --ease-spring: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
 }
