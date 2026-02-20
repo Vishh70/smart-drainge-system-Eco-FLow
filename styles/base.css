@@ -30,6 +30,13 @@ body {
   background-attachment: fixed;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  animation: page-load 600ms var(--ease-smooth) both;
+}
+
+/* ── Selection ── */
+::selection {
+  background: rgba(10, 126, 164, 0.22);
+  color: var(--text-strong);
 }
 
 /* ── Custom Scrollbar ── */
@@ -123,6 +130,42 @@ a:focus-visible {
   padding: var(--space-5);
 }
 
+/* ── App Loader ── */
+.app-loader {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+  background: var(--bg-0);
+  background-image:
+    radial-gradient(ellipse at 10% 8%, rgba(10, 126, 164, 0.12), transparent 44%),
+    radial-gradient(ellipse at 88% 5%, rgba(255, 138, 43, 0.10), transparent 38%);
+  color: var(--text-muted);
+  font-family: var(--font-display);
+  font-size: var(--fs-sm);
+  letter-spacing: 0.04em;
+  transition: opacity 400ms ease, visibility 400ms ease;
+}
+
+.app-loader.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.loader-spinner {
+  width: 42px;
+  height: 42px;
+  border: 3px solid rgba(10, 126, 164, 0.18);
+  border-top-color: var(--brand);
+  border-radius: 50%;
+  animation: spin 800ms linear infinite;
+}
+
 /* ── A11y ── */
 .sr-only {
   position: absolute;
@@ -133,6 +176,43 @@ a:focus-visible {
   overflow: hidden;
   clip: rect(0, 0, 0, 0);
   border: 0;
+}
+
+/* ── Keyframes ── */
+@keyframes page-load {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes scan-line {
+  0% {
+    top: 0;
+  }
+
+  100% {
+    top: 100%;
+  }
 }
 
 /* ── Responsive ── */

@@ -15,6 +15,17 @@
         };
     }
 
+    const brandColors = {
+        teal: '#0a7ea4',
+        tealLight: 'rgba(10, 126, 164, 0.16)',
+        green: '#0fa958',
+        greenBg: 'rgba(15, 169, 88, 0.75)',
+        orange: '#e69500',
+        orangeBg: 'rgba(230, 149, 0, 0.75)',
+        red: '#d92f28',
+        redBg: 'rgba(217, 47, 40, 0.75)'
+    };
+
     function createChartsWidget(eventBus) {
         let loadChart = null;
         let areaChart = null;
@@ -39,19 +50,30 @@
             const maintenanceCtx = document.getElementById(canvasIds.maintenanceChartId);
 
             if (!loadCtx || !areaCtx || !maintenanceCtx) {
+                console.warn('[ChartsWidget] One or more canvas elements not found');
                 return;
             }
 
-            loadChart = new Chart(loadCtx.getContext('2d'), {
+            const loadContext = loadCtx.getContext('2d');
+            const areaContext = areaCtx.getContext('2d');
+            const maintenanceContext = maintenanceCtx.getContext('2d');
+
+            if (!loadContext || !areaContext || !maintenanceContext) {
+                console.warn('[ChartsWidget] Failed to get 2D canvas context');
+                return;
+            }
+
+            loadChart = new Chart(loadContext, {
                 type: 'line',
                 data: {
                     labels: [],
                     datasets: [{
                         label: 'Network Load %',
                         data: [],
-                        borderColor: '#0f6c8f',
-                        backgroundColor: 'rgba(15, 108, 143, 0.16)',
+                        borderColor: brandColors.teal,
+                        backgroundColor: brandColors.tealLight,
                         pointRadius: 2,
+                        pointHoverRadius: 5,
                         fill: true,
                         tension: 0.32
                     }]
@@ -60,16 +82,29 @@
                     responsive: true,
                     maintainAspectRatio: false,
                     animation: { duration: 240 },
+                    plugins: {
+                        legend: {
+                            labels: {
+                                font: { family: "'IBM Plex Sans', sans-serif", size: 12 },
+                                usePointStyle: true,
+                                pointStyle: 'circle'
+                            }
+                        }
+                    },
                     scales: {
                         y: {
                             beginAtZero: true,
-                            max: 100
+                            max: 100,
+                            grid: { color: 'rgba(10, 126, 164, 0.06)' }
+                        },
+                        x: {
+                            grid: { display: false }
                         }
                     }
                 }
             });
 
-            areaChart = new Chart(areaCtx.getContext('2d'), {
+            areaChart = new Chart(areaContext, {
                 type: 'bar',
                 data: {
                     labels: [],
@@ -77,17 +112,17 @@
                         {
                             label: 'Normal',
                             data: [],
-                            backgroundColor: '#1a8d57'
+                            backgroundColor: brandColors.greenBg
                         },
                         {
                             label: 'Warning',
                             data: [],
-                            backgroundColor: '#d58a00'
+                            backgroundColor: brandColors.orangeBg
                         },
                         {
                             label: 'Critical',
                             data: [],
-                            backgroundColor: '#c63a33'
+                            backgroundColor: brandColors.redBg
                         }
                     ]
                 },
@@ -95,9 +130,22 @@
                     responsive: true,
                     maintainAspectRatio: false,
                     animation: { duration: 240 },
+                    plugins: {
+                        legend: {
+                            labels: {
+                                font: { family: "'IBM Plex Sans', sans-serif", size: 12 },
+                                usePointStyle: true,
+                                pointStyle: 'rectRounded'
+                            }
+                        }
+                    },
                     scales: {
-                        x: { stacked: true },
-                        y: { stacked: true, beginAtZero: true }
+                        x: { stacked: true, grid: { display: false } },
+                        y: {
+                            stacked: true,
+                            beginAtZero: true,
+                            grid: { color: 'rgba(10, 126, 164, 0.06)' }
+                        }
                     },
                     onClick(_, elements) {
                         if (!elements.length) {
@@ -110,19 +158,32 @@
                 }
             });
 
-            maintenanceChart = new Chart(maintenanceCtx.getContext('2d'), {
+            maintenanceChart = new Chart(maintenanceContext, {
                 type: 'doughnut',
                 data: {
                     labels: ['Urgent', 'Scheduled', 'Healthy'],
                     datasets: [{
                         data: [0, 0, 0],
-                        backgroundColor: ['#c63a33', '#d58a00', '#1a8d57']
+                        backgroundColor: [brandColors.redBg, brandColors.orangeBg, brandColors.greenBg],
+                        borderWidth: 2,
+                        borderColor: 'rgba(255, 255, 255, 0.9)'
                     }]
                 },
                 options: {
                     responsive: true,
                     maintainAspectRatio: false,
-                    animation: { duration: 240 }
+                    animation: { duration: 240 },
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                            labels: {
+                                font: { family: "'IBM Plex Sans', sans-serif", size: 12 },
+                                usePointStyle: true,
+                                pointStyle: 'circle',
+                                padding: 16
+                            }
+                        }
+                    }
                 }
             });
         }

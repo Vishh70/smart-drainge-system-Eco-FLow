@@ -46,6 +46,8 @@
             `Network load: ${Math.round(loadSignal)}%`,
             `Critical sensors: ${criticalSensors}`,
             `Warning sensors: ${warningSensors}`,
+            `Avg clog probability: ${(avgClog * 100).toFixed(1)}%`,
+            `Mitigation boost active: ${mitigationLift > 0 ? `+${mitigationLift.toFixed(1)}` : 'None'}`,
             `Top risk zones: ${topZones.join(', ') || 'None'}`
         ];
 

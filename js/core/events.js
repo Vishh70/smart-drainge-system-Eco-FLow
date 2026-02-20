@@ -8,8 +8,22 @@
             if (!listeners.has(eventName)) {
                 listeners.set(eventName, new Set());
             }
-            listeners.get(eventName).add(handler);
+
+            const bucket = listeners.get(eventName);
+            if (bucket.has(handler)) {
+                return () => off(eventName, handler);
+            }
+
+            bucket.add(handler);
             return () => off(eventName, handler);
+        }
+
+        function once(eventName, handler) {
+            function wrapper(payload) {
+                off(eventName, wrapper);
+                handler(payload);
+            }
+            return on(eventName, wrapper);
         }
 
         function off(eventName, handler) {
@@ -32,12 +46,12 @@
                 try {
                     handler(payload);
                 } catch (error) {
-                    console.error('[EventBus] handler error', eventName, error);
+                    console.error(`[EventBus] handler error on "${eventName}"`, error);
                 }
             });
         }
 
-        return { on, off, emit };
+        return { on, once, off, emit };
     }
 
     function bindActionDelegates(rootElement, handlers) {

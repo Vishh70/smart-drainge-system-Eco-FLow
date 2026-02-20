@@ -1,6 +1,12 @@
 (() => {
     const EcoFlowWidgets = (window.EcoFlowWidgets = window.EcoFlowWidgets || {});
 
+    function escapeHtml(str) {
+        const div = document.createElement('div');
+        div.textContent = str;
+        return div.innerHTML;
+    }
+
     function severityColor(status) {
         if (status === 'critical') return '#c63a33';
         if (status === 'warning') return '#d58a00';
@@ -24,6 +30,7 @@
         let incidentsLayer = null;
         let flowLayer = null;
         let heatLayer = null;
+        let fitBoundsTimer = null;
 
         function mount(containerId) {
             const container = document.getElementById(containerId);
@@ -90,14 +97,18 @@
                         fillColor: severityColor(sensor.status)
                     });
 
+                    const safeName = escapeHtml(sensor.name);
+                    const safeStatus = escapeHtml(sensor.status);
+                    const safeRecommendation = escapeHtml(state.sim.aiSummary.recommendation);
+
                     marker.bindPopup(`
-                        <div>
-                            <strong>${sensor.name}</strong><br>
-                            Status: ${sensor.status}<br>
+                        <div style="font-size:13px;line-height:1.5;">
+                            <strong>${safeName}</strong><br>
+                            Status: <span style="color:${severityColor(sensor.status)};font-weight:600;">${safeStatus}</span><br>
                             Flow: ${sensor.flow} L/s<br>
                             Sludge: ${sensor.sludge} L<br>
                             Clog Probability: ${(sensor.clogProbability * 100).toFixed(0)}%<br>
-                            Recommendation: ${state.sim.aiSummary.recommendation}
+                            <em style="color:#627d8e;">AI: ${safeRecommendation}</em>
                         </div>
                     `);
 
@@ -148,18 +159,32 @@
                     if (!sensor) {
                         return;
                     }
+                    const safeSeverity = escapeHtml(incident.severity);
+                    const safeMessage = escapeHtml(incident.message);
                     L.marker([sensor.lat, sensor.lng])
-                        .bindPopup(`<b>${incident.severity}</b><br>${incident.message}`)
+                        .bindPopup(`<b>${safeSeverity}</b><br>${safeMessage}`)
                         .addTo(incidentsLayer);
                 });
             }
 
+            // Debounce fitBounds to avoid jitter
             if (points.length > 1) {
-                map.fitBounds(points, { padding: [32, 32], maxZoom: 15 });
+                if (fitBoundsTimer) {
+                    clearTimeout(fitBoundsTimer);
+                }
+                fitBoundsTimer = setTimeout(() => {
+                    if (map) {
+                        map.fitBounds(points, { padding: [32, 32], maxZoom: 15 });
+                    }
+                }, 300);
             }
         }
 
         function destroy() {
+            if (fitBoundsTimer) {
+                clearTimeout(fitBoundsTimer);
+                fitBoundsTimer = null;
+            }
             if (!map) {
                 return;
             }

@@ -6,12 +6,12 @@
             return '/dashboard';
         }
 
-        let route = rawRoute.trim();
+        let route = rawRoute.trim().replace(/\/+$/, '');
         if (!route.startsWith('/')) {
             route = `/${route}`;
         }
 
-        return route.toLowerCase();
+        return route.toLowerCase() || '/dashboard';
     }
 
     function readRouteFromHash() {
@@ -23,9 +23,14 @@
     function createHashRouter() {
         const routes = new Map();
         let onNavigate = null;
+        let beforeNavigateHook = null;
 
         function registerRoute(path, renderFn) {
             routes.set(normalizeRoute(path), renderFn);
+        }
+
+        function beforeNavigate(hookFn) {
+            beforeNavigateHook = hookFn;
         }
 
         function resolveRoute(route) {
@@ -38,6 +43,11 @@
 
         function handleHashChange() {
             const route = resolveRoute(readRouteFromHash());
+
+            if (beforeNavigateHook && beforeNavigateHook(route) === false) {
+                return;
+            }
+
             const renderFn = routes.get(route);
             if (!renderFn) {
                 return;
@@ -77,6 +87,7 @@
 
         return {
             registerRoute,
+            beforeNavigate,
             startRouter,
             stopRouter,
             navigate

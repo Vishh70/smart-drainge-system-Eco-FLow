@@ -1,6 +1,12 @@
 (() => {
     const EcoFlowViews = (window.EcoFlowViews = window.EcoFlowViews || {});
 
+    function escapeHtml(str) {
+        const div = document.createElement('div');
+        div.textContent = str;
+        return div.innerHTML;
+    }
+
     function fmtTime(timestamp) {
         return new Date(timestamp).toLocaleTimeString();
     }
@@ -15,7 +21,7 @@
             .map((incident) => `
                 <li>
                     <time>T${incident.tick}</time>
-                    <strong>${incident.severity}</strong> - ${incident.message}
+                    <strong>${escapeHtml(incident.severity)}</strong> - ${escapeHtml(incident.message)}
                 </li>
             `)
             .join('');
@@ -56,7 +62,7 @@
                         <article class="card fade-in">
                             <div class="card-head">
                                 <h3>City Monitoring Map</h3>
-                                <span class="badge" id="dashboard-snapshot-label">Snapshot: ${snapshotLabel}</span>
+                                <span class="badge" id="dashboard-snapshot-label">Snapshot: ${escapeHtml(snapshotLabel)}</span>
                             </div>
 
                             <div class="layer-controls" role="group" aria-label="Map layer controls">
@@ -91,7 +97,7 @@
                                 <h3>Incident Timeline</h3>
                                 <span class="badge ${state.network.alerts.length ? 'warn' : ''}" id="dashboard-alert-count">${state.network.alerts.length} alerts</span>
                             </div>
-                            <ul class="timeline" id="dashboard-incident-list">${renderIncidentItems(state)}</ul>
+                            <ul class="timeline" id="dashboard-incident-list" aria-label="Recent incidents">${renderIncidentItems(state)}</ul>
                         </article>
                     </div>
 
@@ -103,10 +109,10 @@
                             </div>
                             <div class="metric-stack" style="margin-bottom: 12px;" id="dashboard-ai-metrics">
                                 <div class="metric-row"><span>Risk Score</span><strong id="dashboard-ai-risk">${ai.riskScore}</strong></div>
-                                <div class="metric-row"><span>Anomaly</span><strong id="dashboard-ai-anomaly">${ai.anomalyClass}</strong></div>
-                                <div class="metric-row"><span>Recommended Action</span><strong id="dashboard-ai-recommendation">${ai.recommendation}</strong></div>
+                                <div class="metric-row"><span>Anomaly</span><strong id="dashboard-ai-anomaly">${escapeHtml(ai.anomalyClass)}</strong></div>
+                                <div class="metric-row"><span>Recommended Action</span><strong id="dashboard-ai-recommendation">${escapeHtml(ai.recommendation)}</strong></div>
                             </div>
-                            <div class="ai-output" id="dashboard-ai-output">${ai.rationale.map((line) => `> ${line}`).join('<br>')}</div>
+                            <div class="ai-output" id="dashboard-ai-output" aria-label="AI analysis rationale">${ai.rationale.map((line) => `&gt; ${escapeHtml(line)}`).join('<br>')}</div>
                         </article>
 
                         <article class="card fade-in">
@@ -115,9 +121,9 @@
                                 <span class="badge">Live Ops</span>
                             </div>
                             <div class="grid" style="gap: 10px;">
-                                <button class="btn btn-primary" data-action="apply-mitigation" data-type="dispatch_crew">Dispatch Maintenance Crew</button>
-                                <button class="btn btn-ghost" data-action="apply-mitigation" data-type="preflush_network">Start Pre-Flush Cycle</button>
-                                <button class="btn btn-accent" data-action="apply-mitigation" data-type="reroute_north">Reroute Northbound Flow</button>
+                                <button class="btn btn-primary" data-action="apply-mitigation" data-type="dispatch_crew">🛠️ Dispatch Maintenance Crew</button>
+                                <button class="btn btn-ghost" data-action="apply-mitigation" data-type="preflush_network">💧 Start Pre-Flush Cycle</button>
+                                <button class="btn btn-accent" data-action="apply-mitigation" data-type="reroute_north">🔄 Reroute Northbound Flow</button>
                             </div>
                         </article>
                     </div>
@@ -192,7 +198,7 @@
 
         const aiOutput = document.getElementById('dashboard-ai-output');
         if (aiOutput) {
-            aiOutput.innerHTML = ai.rationale.map((line) => `> ${line}`).join('<br>');
+            aiOutput.innerHTML = ai.rationale.map((line) => `&gt; ${escapeHtml(line)}`).join('<br>');
         }
     }
 

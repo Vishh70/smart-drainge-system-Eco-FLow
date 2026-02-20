@@ -696,14 +696,30 @@
         toast.show('EcoFlow control room initialized.', 'success');
     }
 
+    function escapeHtml(str) {
+        const div = document.createElement('div');
+        div.textContent = str;
+        return div.innerHTML;
+    }
+
+    function dismissLoader() {
+        const loader = document.getElementById('app-loader');
+        if (loader) {
+            loader.classList.add('hidden');
+            window.setTimeout(() => loader.remove(), 500);
+        }
+    }
+
     document.addEventListener('DOMContentLoaded', () => {
         try {
             appInit();
+            dismissLoader();
         } catch (error) {
             console.error('[EcoFlow] init failed', error);
+            dismissLoader();
             const appRoot = document.getElementById('app-root');
             if (appRoot) {
-                appRoot.innerHTML = `<article class="card error-card"><h3>App failed to initialize</h3><p>${error.message}</p></article>`;
+                appRoot.innerHTML = `<article class="card error-card"><h3>App failed to initialize</h3><p>${escapeHtml(error.message)}</p></article>`;
             }
         }
     });

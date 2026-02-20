@@ -1,6 +1,12 @@
 (() => {
     const EcoFlowViews = (window.EcoFlowViews = window.EcoFlowViews || {});
 
+    function escapeHtml(str) {
+        const div = document.createElement('div');
+        div.textContent = str;
+        return div.innerHTML;
+    }
+
     function getCurrentSnapshot(state) {
         return state.sim.history[state.sim.history.length - 1] || null;
     }
@@ -39,6 +45,11 @@
             }));
     }
 
+    function sortArrow(currentKey, targetKey, direction) {
+        if (currentKey !== targetKey) return '';
+        return `<span class="sort-indicator">${direction === 'asc' ? '▲' : '▼'}</span>`;
+    }
+
     function renderRows(state) {
         const rows = buildRows(state);
         if (!rows.length) {
@@ -51,13 +62,13 @@
         return sorted
             .map((row) => `
                 <tr>
-                    <td>${row.location}</td>
-                    <td>${row.area}</td>
+                    <td>${escapeHtml(row.location)}</td>
+                    <td>${escapeHtml(row.area)}</td>
                     <td>${row.flow.toFixed(1)}</td>
                     <td>${row.sludge.toFixed(1)}</td>
                     <td>${row.risk.toFixed(1)}</td>
-                    <td><span class="status-chip ${row.status === 'critical' ? 'crit' : row.status === 'warning' ? 'warn' : 'ok'}">${row.status}</span></td>
-                    <td>${row.direction}</td>
+                    <td><span class="status-chip ${row.status === 'critical' ? 'crit' : row.status === 'warning' ? 'warn' : 'ok'}">${escapeHtml(row.status)}</span></td>
+                    <td>${escapeHtml(row.direction)}</td>
                 </tr>
             `)
             .join('');
@@ -66,6 +77,7 @@
     function render(state) {
         const snapshot = getCurrentSnapshot(state);
         const tickText = snapshot ? `T${snapshot.tick}` : 'Waiting';
+        const { key, direction } = state.ui.tableSort;
 
         return `
             <section class="route-fade">
@@ -95,7 +107,7 @@
                     <article class="card chart-box">
                         <div class="card-head">
                             <h3>Maintenance Mix</h3>
-                            <button class="btn btn-sm btn-ghost" data-action="download-snapshot">Download Snapshot JSON</button>
+                            <button class="btn btn-sm btn-ghost" data-action="download-snapshot">📥 Download Snapshot JSON</button>
                         </div>
                         <canvas id="maintenance-chart" aria-label="Maintenance donut chart"></canvas>
                     </article>
@@ -126,11 +138,11 @@
                         <table>
                             <thead>
                                 <tr>
-                                    <th><button class="btn btn-sm btn-ghost" data-action="sort-ops" data-sort-key="location">Location</button></th>
-                                    <th><button class="btn btn-sm btn-ghost" data-action="sort-ops" data-sort-key="area">Area</button></th>
-                                    <th><button class="btn btn-sm btn-ghost" data-action="sort-ops" data-sort-key="flow">Flow</button></th>
-                                    <th><button class="btn btn-sm btn-ghost" data-action="sort-ops" data-sort-key="sludge">Sludge</button></th>
-                                    <th><button class="btn btn-sm btn-ghost" data-action="sort-ops" data-sort-key="risk">Risk</button></th>
+                                    <th><button class="btn btn-sm btn-ghost" data-action="sort-ops" data-sort-key="location">Location${sortArrow(key, 'location', direction)}</button></th>
+                                    <th><button class="btn btn-sm btn-ghost" data-action="sort-ops" data-sort-key="area">Area${sortArrow(key, 'area', direction)}</button></th>
+                                    <th><button class="btn btn-sm btn-ghost" data-action="sort-ops" data-sort-key="flow">Flow${sortArrow(key, 'flow', direction)}</button></th>
+                                    <th><button class="btn btn-sm btn-ghost" data-action="sort-ops" data-sort-key="sludge">Sludge${sortArrow(key, 'sludge', direction)}</button></th>
+                                    <th><button class="btn btn-sm btn-ghost" data-action="sort-ops" data-sort-key="risk">Risk${sortArrow(key, 'risk', direction)}</button></th>
                                     <th>Status</th>
                                     <th>Direction</th>
                                 </tr>

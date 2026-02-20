@@ -5,6 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EcoFlow | Smart Drainage Operations Center</title>
+    <meta name="description"
+        content="EcoFlow Smart Drainage Operations Center — AI-powered real-time monitoring, IoT simulation, and predictive maintenance for urban drainage networks.">
+    <meta property="og:title" content="EcoFlow | Smart Drainage Operations Center">
+    <meta property="og:description"
+        content="AI-powered real-time urban drainage monitoring with IoT simulation and predictive analytics.">
+    <meta property="og:type" content="website">
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💧</text></svg>">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="design-system.css">
@@ -14,7 +22,12 @@
 </head>
 
 <body>
-    <header class="mobile-topbar">
+    <div id="app-loader" class="app-loader" aria-label="Loading EcoFlow">
+        <div class="loader-spinner"></div>
+        <p>Initializing EcoFlow Control Room…</p>
+    </div>
+
+    <header class="mobile-topbar" role="banner">
         <h1>EcoFlow</h1>
         <button class="btn btn-primary" data-action="toggle-sidebar" aria-label="Toggle navigation menu">Menu</button>
     </header>
@@ -42,7 +55,7 @@
 
             <div class="content-wrap">
                 <section id="global-filters" aria-label="Global filters"></section>
-                <main id="app-root" aria-live="polite"></main>
+                <main id="app-root" role="main" aria-live="polite"></main>
             </div>
         </div>
     </div>

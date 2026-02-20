@@ -1,11 +1,24 @@
 (() => {
     const EcoFlowViews = (window.EcoFlowViews = window.EcoFlowViews || {});
 
+    function escapeHtml(str) {
+        const div = document.createElement('div');
+        div.textContent = str;
+        return div.innerHTML;
+    }
+
     function badgeForCommand(status) {
         if (status === 'failed') return '<span class="badge crit">Failed</span>';
-        if (status === 'in_flight') return '<span class="badge warn">In Flight</span>';
-        if (status === 'queued') return '<span class="badge">Queued</span>';
+        if (status === 'in_flight') return '<span class="badge warn"><span class="status-dot pulsing"></span>In Flight</span>';
+        if (status === 'queued') return '<span class="badge">⏳ Queued</span>';
         return '<span class="badge">Idle</span>';
+    }
+
+    function logIcon(level) {
+        if (level === 'success') return '✅';
+        if (level === 'warning') return '⚠️';
+        if (level === 'info') return 'ℹ️';
+        return '📋';
     }
 
     function renderValves(state) {
@@ -13,11 +26,11 @@
             .map((valve) => `
                 <div class="valve-row">
                     <div>
-                        <strong>${valve.label}</strong><br>
-                        <small>${valve.zone}</small>
+                        <strong>${escapeHtml(valve.label)}</strong><br>
+                        <small>${escapeHtml(valve.zone)}</small>
                     </div>
                     <div>${badgeForCommand(valve.commandStatus)}</div>
-                    <button class="btn btn-sm ${valve.state === 'ON' ? 'btn-accent' : 'btn-primary'}" data-action="toggle-valve" data-valve-id="${valve.id}" ${valve.commandStatus === 'in_flight' ? 'disabled' : ''}>
+                    <button class="btn btn-sm ${valve.state === 'ON' ? 'btn-accent' : 'btn-primary'}" data-action="toggle-valve" data-valve-id="${escapeHtml(valve.id)}" ${valve.commandStatus === 'in_flight' ? 'disabled' : ''} aria-label="Toggle valve ${escapeHtml(valve.label)}">
                         ${valve.state}
                     </button>
                 </div>
@@ -34,12 +47,12 @@
             .slice(0, 10)
             .map((task) => `
                 <tr>
-                    <td>${task.location}</td>
-                    <td>${task.area}</td>
+                    <td>${escapeHtml(task.location)}</td>
+                    <td>${escapeHtml(task.area)}</td>
                     <td>${task.risk.toFixed(1)}</td>
-                    <td>${task.crew}</td>
+                    <td>${escapeHtml(task.crew)}</td>
                     <td>${task.etaMinutes} min</td>
-                    <td>${task.status}</td>
+                    <td><span class="status-chip ${task.status === 'Urgent' ? 'crit' : 'warn'}">${escapeHtml(task.status)}</span></td>
                 </tr>
             `)
             .join('');
@@ -53,7 +66,7 @@
         return state.ops.activityLog.slice(0, 18).map((log) => `
             <li>
                 <time>${new Date(log.timestamp).toLocaleTimeString()}</time>
-                <strong>${log.level.toUpperCase()}</strong> - ${log.message}
+                ${logIcon(log.level)} <strong>${escapeHtml(log.level.toUpperCase())}</strong> - ${escapeHtml(log.message)}
             </li>
         `).join('');
     }
@@ -61,6 +74,7 @@
     function render(state) {
         const scenario = state.sim.scenario;
         const running = state.sim.running;
+        const scenarioData = window.EcoFlowSim && window.EcoFlowSim.scenarios ? window.EcoFlowSim.scenarios : {};
 
         return `
             <section class="route-fade">
@@ -81,22 +95,22 @@
                                 <div class="toolbar-group">
                                     <label for="scenario-select">Scenario Pack</label>
                                     <select id="scenario-select" class="select" data-action="set-scenario" data-event="change">
-                                        <option value="normal_ops" ${scenario === 'normal_ops' ? 'selected' : ''}>Normal Ops</option>
-                                        <option value="heavy_rain" ${scenario === 'heavy_rain' ? 'selected' : ''}>Heavy Rain</option>
-                                        <option value="blockage_cascade" ${scenario === 'blockage_cascade' ? 'selected' : ''}>Blockage Cascade</option>
-                                        <option value="pump_failure" ${scenario === 'pump_failure' ? 'selected' : ''}>Pump Failure</option>
+                                        <option value="normal_ops" ${scenario === 'normal_ops' ? 'selected' : ''} title="${scenarioData.normal_ops ? escapeHtml(scenarioData.normal_ops.description || '') : ''}">Normal Ops</option>
+                                        <option value="heavy_rain" ${scenario === 'heavy_rain' ? 'selected' : ''} title="${scenarioData.heavy_rain ? escapeHtml(scenarioData.heavy_rain.description || '') : ''}">Heavy Rain</option>
+                                        <option value="blockage_cascade" ${scenario === 'blockage_cascade' ? 'selected' : ''} title="${scenarioData.blockage_cascade ? escapeHtml(scenarioData.blockage_cascade.description || '') : ''}">Blockage Cascade</option>
+                                        <option value="pump_failure" ${scenario === 'pump_failure' ? 'selected' : ''} title="${scenarioData.pump_failure ? escapeHtml(scenarioData.pump_failure.description || '') : ''}">Pump Failure</option>
                                     </select>
                                 </div>
                                 <div class="toolbar-group">
                                     <label>Simulation State</label>
-                                    <button id="admin-sim-toggle" class="btn ${running ? 'btn-ghost' : 'btn-primary'}" data-action="toggle-simulation">${running ? 'Pause Simulation' : 'Start Simulation'}</button>
+                                    <button id="admin-sim-toggle" class="btn ${running ? 'btn-ghost' : 'btn-primary'}" data-action="toggle-simulation">${running ? '⏸ Pause Simulation' : '▶ Start Simulation'}</button>
                                 </div>
                                 <div class="toolbar-group">
                                     <label>Mitigations</label>
                                     <div style="display:flex; gap:8px; flex-wrap:wrap;">
-                                        <button class="btn btn-sm btn-ghost" data-action="apply-mitigation" data-type="dispatch_crew">Dispatch Crew</button>
-                                        <button class="btn btn-sm btn-ghost" data-action="apply-mitigation" data-type="preflush_network">Pre-Flush</button>
-                                        <button class="btn btn-sm btn-accent" data-action="apply-mitigation" data-type="reroute_north">Reroute</button>
+                                        <button class="btn btn-sm btn-ghost" data-action="apply-mitigation" data-type="dispatch_crew">🛠️ Dispatch Crew</button>
+                                        <button class="btn btn-sm btn-ghost" data-action="apply-mitigation" data-type="preflush_network">💧 Pre-Flush</button>
+                                        <button class="btn btn-sm btn-accent" data-action="apply-mitigation" data-type="reroute_north">🔄 Reroute</button>
                                     </div>
                                 </div>
                             </div>
@@ -129,9 +143,9 @@
                         <article class="card">
                             <div class="card-head">
                                 <h3>Smart Valve IoT Control</h3>
-                                <span class="badge">Command lifecycle: queued -> in-flight -> result</span>
+                                <span class="badge">Command lifecycle: queued → in-flight → result</span>
                             </div>
-                            <div class="valve-grid" id="valve-grid">${renderValves(state)}</div>
+                            <div class="valve-grid" id="valve-grid" aria-label="IoT valve controls">${renderValves(state)}</div>
                         </article>
 
                         <article class="card">
@@ -139,7 +153,7 @@
                                 <h3>Operations Log</h3>
                                 <span class="badge">Latest first</span>
                             </div>
-                            <ul class="log-list" id="ops-log-list">${renderLogRows(state)}</ul>
+                            <ul class="log-list" id="ops-log-list" aria-label="Operations activity log">${renderLogRows(state)}</ul>
                         </article>
                     </div>
                 </div>
@@ -159,7 +173,7 @@
 
         const toggleBtn = document.getElementById('admin-sim-toggle');
         if (toggleBtn) {
-            toggleBtn.textContent = state.sim.running ? 'Pause Simulation' : 'Start Simulation';
+            toggleBtn.innerHTML = state.sim.running ? '⏸ Pause Simulation' : '▶ Start Simulation';
             toggleBtn.className = `btn ${state.sim.running ? 'btn-ghost' : 'btn-primary'}`;
         }
 

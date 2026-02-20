@@ -30,10 +30,13 @@
   /* ── Semantic Status ── */
   --ok: #0fa958;
   --ok-bg: #e4f9ee;
+  --ok-text: #076e39;
   --warn: #e69500;
   --warn-bg: #fff4db;
+  --warn-text: #7a4c00;
   --crit: #d92f28;
   --crit-bg: #ffe3e1;
+  --crit-text: #8b1a16;
   --info: #1881cb;
 
   /* ── Radius ── */
@@ -83,4 +86,38 @@
   /* ── Transition ── */
   --ease-spring: cubic-bezier(0.175, 0.885, 0.32, 1.275);
   --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* ── Animation Durations ── */
+  --duration-fast: 150ms;
+  --duration-normal: 280ms;
+  --duration-slow: 450ms;
+}
+
+/* ── Dark Mode ── */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-0: #0b1a24;
+    --bg-1: #112530;
+    --surface-0: #14293a;
+    --surface-1: #1a3348;
+    --surface-2: #1f3d54;
+
+    --text-strong: #e8f2f8;
+    --text-body: #b0c8d8;
+    --text-muted: #7a99ae;
+    --text-on-dark: #e8f2f8;
+
+    --ok-bg: rgba(15, 169, 88, 0.15);
+    --ok-text: #3dd88a;
+    --warn-bg: rgba(230, 149, 0, 0.15);
+    --warn-text: #f0b840;
+    --crit-bg: rgba(217, 47, 40, 0.15);
+    --crit-text: #f06860;
+
+    --shadow-xs: 0 1px 3px rgba(0, 0, 0, 0.25);
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.30);
+    --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.35);
+    --shadow-lg: 0 20px 48px rgba(0, 0, 0, 0.40);
+    --shadow-glow: 0 0 20px rgba(10, 126, 164, 0.25);
+  }
 }

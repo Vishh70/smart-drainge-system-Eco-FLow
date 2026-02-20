@@ -40,9 +40,19 @@
 
     function saveState(state) {
         try {
-            window.localStorage.setItem(STORAGE_KEYS.state, JSON.stringify(state));
+            const serialized = JSON.stringify(state);
+            window.localStorage.setItem(STORAGE_KEYS.state, serialized);
         } catch (error) {
-            console.warn('[Persistence] failed to save state', error);
+            if (error.name === 'QuotaExceededError' || error.code === 22) {
+                console.warn('[Persistence] storage quota exceeded, clearing old state');
+                try {
+                    window.localStorage.removeItem(STORAGE_KEYS.state);
+                } catch (_) {
+                    // ignore
+                }
+            } else {
+                console.warn('[Persistence] failed to save state', error);
+            }
         }
     }
 
@@ -50,7 +60,11 @@
         try {
             window.localStorage.setItem(STORAGE_KEYS.settings, JSON.stringify(settings));
         } catch (error) {
-            console.warn('[Persistence] failed to save settings', error);
+            if (error.name === 'QuotaExceededError' || error.code === 22) {
+                console.warn('[Persistence] storage quota exceeded for settings');
+            } else {
+                console.warn('[Persistence] failed to save settings', error);
+            }
         }
     }
 
