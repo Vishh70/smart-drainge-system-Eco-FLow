@@ -1,0 +1,59 @@
+:root {
+  --bg-0: #f2f5f7;
+  --bg-1: #e6edf1;
+  --surface-0: #ffffff;
+  --surface-1: #f8fbfd;
+  --surface-2: #dfe8ee;
+
+  --sidebar-bg: #072b3f;
+  --sidebar-text: #d7e7f0;
+  --sidebar-active: #0e4f6b;
+  --sidebar-hover: rgba(255, 255, 255, 0.08);
+
+  --brand: #0f6c8f;
+  --brand-strong: #0a5672;
+  --accent: #ff8f1f;
+  --accent-strong: #d86f00;
+
+  --text-strong: #122630;
+  --text-body: #27414f;
+  --text-muted: #5e7682;
+  --text-on-dark: #edf5fa;
+
+  --ok: #1a8d57;
+  --warn: #d58a00;
+  --crit: #c63a33;
+  --info: #1d75b8;
+
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 22px;
+
+  --space-1: 6px;
+  --space-2: 10px;
+  --space-3: 14px;
+  --space-4: 18px;
+  --space-5: 24px;
+  --space-6: 32px;
+
+  --shadow-sm: 0 2px 6px rgba(8, 27, 39, 0.08);
+  --shadow-md: 0 10px 24px rgba(8, 27, 39, 0.12);
+  --shadow-lg: 0 18px 44px rgba(8, 27, 39, 0.18);
+
+  --sidebar-width: 280px;
+  --max-width: 1600px;
+
+  --font-display: "Space Grotesk", "Segoe UI", sans-serif;
+  --font-body: "IBM Plex Sans", "Segoe UI", sans-serif;
+
+  --fs-xs: 0.78rem;
+  --fs-sm: 0.9rem;
+  --fs-md: 1rem;
+  --fs-lg: 1.2rem;
+  --fs-xl: 1.5rem;
+  --fs-2xl: 2rem;
+
+  --lh-tight: 1.2;
+  --lh-body: 1.5;
+  --lh-relaxed: 1.65;
+}

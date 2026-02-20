@@ -1,0 +1,902 @@
+{
+	"default": "/dist/chart.umd.min.js",
+	"files": [
+		{
+			"type": "directory",
+			"name": "helpers",
+			"files": [
+				{
+					"type": "file",
+					"name": "helpers.cjs",
+					"hash": "m91Sdqr0c4zv6uL7gVHNaIjcqRJLjI0uv1CSZjKyFxg=",
+					"time": "1985-10-26T08:15:00.000Z",
+					"size": 49
+				},
+				{
+					"type": "file",
+					"name": "helpers.d.ts",
+					"hash": "HyjjpTFGZZR3sugHwNzFxg68hmkJqrmI/JzE/Ixk3Gg=",
+					"time": "1985-10-26T08:15:00.000Z",
+					"size": 42
+				},
+				{
+					"type": "file",
+					"name": "helpers.js",
+					"hash": "q7mp0ZHjisV7lZdT6VS/bo9gA5AhowqBPiS6hrCSX5o=",
+					"time": "1985-10-26T08:15:00.000Z",
+					"size": 36
+				},
+				{
+					"type": "file",
+					"name": "package.json",
+					"hash": "DC2+CTqYRfk6FIWo/rF+HGEY/CIICRXTOUN8Ep/zjnI=",
+					"time": "1985-10-26T08:15:00.000Z",
+					"size": 405
+				}
+			]
+		},
+		{
+			"type": "directory",
+			"name": "dist",
+			"files": [
+				{
+					"type": "directory",
+					"name": "chunks",
+					"files": [
+						{
+							"type": "file",
+							"name": "helpers.dataset.cjs",
+							"hash": "O6OPPk2XvDohh8fbNeMYanLByql/l41AgRaDwhsqvfk=",
+							"time": "1985-10-26T08:15:00.000Z",
+							"size": 98754
+						},
+						{
+							"type": "file",
+							"name": "helpers.dataset.cjs.map",
+							"hash": "IdRpPzOugZPf3KEfW5cBOseLk0rUtdtfyoNzRwrn5l8=",
+							"time": "1985-10-26T08:15:00.000Z",
+							"size": 235863
+						},
+						{
+							"type": "file",
+							"name": "helpers.dataset.js",
+							"hash": "bPJ+YAbwgLUqVxrRwfNoP5q8lnQ/kpCS3Gd/9qYQ9Vo=",
+							"time": "1985-10-26T08:15:00.000Z",
+							"size": 96538
+						},
+						{
+							"type": "file",
+							"name": "helpers.dataset.js.map",
+							"hash": "01oNFXfOsyQhbpAL10uaYs/Lo6Gi23AKaZKQdtwoc/Y=",
+							"time": "1985-10-26T08:15:00.000Z",
+							"size": 235735
+						}
+					]
+				},
+				{
+					"type": "directory",
+					"name": "controllers",
+					"files": [
+						{
+							"type": "file",
+							"name": "controller.bar.d.ts",
+							"hash": "k6y3PpdbT9dB+vLo+ypXBarc+Mot+P41TJ7bCwdiIlI=",
+							"time": "1985-10-26T08:15:00.000Z",
+							"size": 2112
+						},
+						{
+							"type": "file",
+							"name": "controller.bubble.d.ts",
+							"hash": "JL9MOrMSsy5vEUrcL0zoWKiiivdqvL3EakpAZVkz8VI=",
+							"time": "1985-10-26T08:15:00.000Z",
+							"size": 927
+						},
+						{
+							"type": "file",
+							"name": "controller.doughnut.d.ts",
+							"hash": "OzVdW8ILcWB5mAoO0tQAGAoVNo2wWIizuFj5CuPOrBQ=",
+							"time": "1985-10-26T08:15:00.000Z",
+							"size": 1736
+						},
+						{
+							"type": "file",
+							"name": "controller.line.d.ts",
+							"hash": "/yxKQLveCDkIN0Q1VbmuIBr1S1J7rxUVVTEHgr17uO8=",
+							"time": "1985-10-26T08:15:00.000Z",
+							"size": 322
+						},
+						{
+							"type": "file",
+							"name": "controller.pie.d.ts",
+							"hash": "HmR/gCWdYZdMjQqJ2eP9IkFpdcJX129PMtb/OLkVfyE=",
+							"time": "1985-10-26T08:15:00.000Z",
+							"size": 125
+						},
+						{
+							"type": "file",
+							"name": "controller.polarArea.d.ts",
+							"hash": "DpmYaEygLAKBcEQfTABuHK9CX5qcOBTPh2WgACdz/jA=",
+							"time": "1985-10-26T08:15:00.000Z",
+							"size": 808
+						},
+						{
+							"type": "file",
+							"name": "controller.radar.d.ts",
+							"hash": "Men5uBF5zc5O4c0dakJ9wMX9FQZDB9+MrVgjew2WOFs=",
+							"time": "1985-10-26T08:15:00.000Z",
+							"size": 480
+						},
+						{
+							"type": "file",
+							"name": "controller.scatter.d.ts",
+							"hash": "e6c+ZHYUSsRYexi8xwNJ0qjnzt5OeAgVtToFfKcfdk0=",
+							"time": "1985-10-26T08:15:00.000Z",
+							"size": 459
+						},
+						{
+							"type": "file",
+							"name": "index.d.ts",
+							"hash": "+6aQ/ES1wdsp+0coMN9M6hN0ZCk1oCxjAnML/zd1JJg=",
+							"time": "1985-10-26T08:15:00.000Z",
+							"size": 554
+						}
+					]
+				},
+				{
+					"type": "directory",
+					"name": "core",
+					"files": [
+						{
+							"type": "file",
+							"name": "core.adapters.d.ts",
+							"hash": "ObyMNjkA/6eZ+Y6y5Mfd1S4Jz7k5IIISjr5JN5+ZmqU=",
+							"time": "1985-10-26T08:15:00.000Z",
+							"size": 2812
+						},
+						{
+							"type": "file",
+							"name": "core.animation.d.ts",
+							"hash": "JRXa8OKwXsWpA0nqg5zB+tjmcTVmV0fNX3K3s9KtScM=",
+							"time": "1985-10-26T08:15:00.000Z",
+							"size": 500
+						},
+						{
+							"type": "file",
+							"name": "core.animations.d.ts",
+							"hash": "e0p1a7WSSK64MXCSOQFKmFCDdyfC1uwFP1Turuld2jk=",
+							"time": "1985-10-26T08:15:00.000Z",
+							"size": 688
+						},
+						{
+							"type": "file",
+							"name": "core.animations.defaults.d.ts",
+							"hash": "E08rooHaotNCtHM7M+2Lf95e2aMGoQtySHZFamy/vCQ=",
+							"time": "1985-10-26T08:15:00.000Z",
+							"size": 62
+						},
+						{
+							"type": "file",
+							"name": "core.animator.d.ts",
+							"hash": "zekcoj0UAhrKU626WXe+v39y5PGLvc0samiUgsd9ugc=",
+							"time": "1985-10-26T08:15:00.000Z",
+							"size": 1681
+						},
+						{
+							"type": "file",
+							"name": "core.config.d.ts",
+							"hash": "Y/YxKkvh7DRLqnxc24MVh+1fc3813yuqLT2x0YC5g+w=",
+							"time": "1985-10-26T08:15:00.000Z",
+							"size": 3152
+						},
+						{
+							"type": "file",
+							"name": "core.controller.d.ts",
+							"hash": "iV7QRK+3kPoGtkRnaIyyhDbYf0bc3FJqFjkVqWLVXco=",
+							"time": "1985-10-26T08:15:00.000Z",
+							"size": 8168
+						},
+						{
+							"type": "file",
+							"name": "core.datasetController.d.ts",
+							"hash": "ZG1mxCPabwNuz9qB2m99YKR0jdsMWMhdJhu1yOVBzvI=",
+							"time": "1985-10-26T08:15:00.000Z",
+							"size": 7354
+						},
+						{
+							"type": "file",
+							"name": "core.defaults.d.ts",
+							"hash": "69CfQHHFOkKgmiD+sLFEsfSF8Qp9YZCrqRwXFJd9aJ8=",
+							"time": "1985-10-26T08:15:00.000Z",
+							"size": 2747
+						},
+						{
+							"type": "file",
+							"name": "core.element.d.ts",
+							"hash": "Kp+Cr2x88eAC0XFT4Q11j2hdCFhk9sX30rd1681rL8k=",
+							"time": "1985-10-26T08:15:00.000Z",
+							"size": 861
+						},
+						{
+							"type": "file",
+							"name": "core.interaction.d.ts",
+							"hash": "GRh4BBvm2uC3WXTR0o1VroKiiW1etQBOsDnpZOgUDAA=",
+							"time": "1985-10-26T08:15:00.000Z",
+							"size": 5665
+						},
+						{
+							"type": "file",
+							"name": "core.layouts.d.ts",
+							"hash": "f0Jy/VZ9BlwfVhSuO+1hs97keEUme+DkHdJPkBmFvw8=",
+							"time": "1985-10-26T08:15:00.000Z",
+							"size": 3189
+						},
+						{
+							"type": "file",
+							"name": "core.layouts.defaults.d.ts",
+							"hash": "NcsBuhIKgm3a2cL7DaUygGFtMrUY19dMWCUX/tNrgt8=",
+							"time": "1985-10-26T08:15:00.000Z",
+							"size": 59
+						},
+						{
+							"type": "file",
+							"name": "core.plugins.d.ts",
+							"hash": "u57h9EtDfqH0L1UszQXnif/4EIxlaHuj2SeeI+JiY+k=",
+							"time": "1985-10-26T08:15:00.000Z",
+							"size": 2123
+						},
+						{
+							"type": "file",
+							"name": "core.registry.d.ts",
+							"hash": "NXrPtoIvFRYSFOueGEjHZxgnULZ/nCxqwPq1LOMA3bs=",
+							"time": "1985-10-26T08:15:00.000Z",
+							"size": 2296
+						},
+						{
+							"type": "file",
+							"name": "core.scale.autoskip.d.ts",
+							"hash": "/UIz3t6rY/AUeUtF/7MKdYUTGpqQ4j9eGkq0rm9gIgs=",
+							"time": "1985-10-26T08:15:00.000Z",
+							"size": 611
+						},
+						{
+							"type": "file",
+							"name": "core.scale.d.ts",
+							"hash": "Kh975mjjqVzbaDxvdVYxvxnelwXG1sHJ5OvGfp25Ftc=",
+							"time": "1985-10-26T08:15:00.000Z",
+							"size": 9485
+						},
+						{
+							"type": "file",
+							"name": "core.scale.defaults.d.ts",
+							"hash": "9cj/EcDyjFcAIrTm0IMI8cgUZv6nXuKCDvx7fwSteb4=",
+							"time": "1985-10-26T08:15:00.000Z",
+							"size": 57
+						},
+						{
+							"type": "file",
+							"name": "core.ticks.d.ts",
+							"hash": "D+bLDsgv6ou2lNgzX41HDIhDYAonfPAtfb+4QAJmboo=",
+							"time": "1985-10-26T08:15:00.000Z",
+							"size": 1290
+						},
+						{
+							"type": "file",
+							"name": "core.typedRegistry.d.ts",
+							"hash": "NFvxNLfACVTB2z4BHwKcBmh3oyJWVpydkbbOtbzKBUw=",
+							"time": "1985-10-26T08:15:00.000Z",
+							"size": 896
+						},
+						{
+							"type": "file",
+							"name": "index.d.ts",
+							"hash": "5DFZCJWHdozJ5LMlSIxUbOyVBgIXOwSk9suaYVxPw7k=",
+							"time": "1985-10-26T08:15:00.000Z",
+							"size": 889
+						}
+					]
+				},
+				{
+					"type": "directory",
+					"name": "elements",
+					"files": [
+						{
+							"type": "file",
+							"name": "element.arc.d.ts",
+							"hash": "C2Fu4IFLJceyMac7V62TpVimuMtdNkJ3a5LcqONh3Z0=",
+							"time": "1985-10-26T08:15:00.000Z",
+							"size": 1424
+						},
+						{
+							"type": "file",
+							"name": "element.bar.d.ts",
+							"hash": "ecXDRBpnhs5IBFKKpWCDbkXPhVr08l1spA9ZjNbxl5o=",
+							"time": "1985-10-26T08:15:00.000Z",
+							"size": 877
+						},
+						{
+							"type": "file",
+							"name": "element.line.d.ts",
+							"hash": "BT7QJ9arZWxT7o38P+hCvv8qgxgxWR9/RGwOoWMvYG4=",
+							"time": "1985-10-26T08:15:00.000Z",
+							"size": 3416
+						},
+						{
+							"type": "file",
+							"name": "element.point.d.ts",
+							"hash": "9ltvEuJktuItz4iLwMI5qrJ8HR+mVgr2S81FD4ZKurc=",
+							"time": "1985-10-26T08:15:00.000Z",
+							"size": 1276
+						},
+						{
+							"type": "file",
+							"name": "index.d.ts",
+							"hash": "vyNaQKWV/kwccv9ytQqYgacnnEBjAp/IjkkjdUJ5eTU=",
+							"time": "1985-10-26T08:15:00.000Z",
+							"size": 238
+						}
+					]
+				},
+				{
+					"type": "directory",
+					"name": "helpers",
+					"files": [
+						{
+							"type": "file",
+							"name": "helpers.canvas.d.ts",
+							"hash": "AhyPnXMafUJD+i1EqALlMGUUD1vz3LEcRgJ57hhvtrs=",
+							"time": "1985-10-26T08:15:00.000Z",
+							"size": 3021
+						},
+						{
+							"type": "file",
+							"name": "helpers.collection.d.ts",
+							"hash": "6xnZOTbhTX9ZfoaFD/9mfIENbTOKiUu1/3GmWq50ANY=",
+							"time": "1985-10-26T08:15:00.000Z",
+							"size": 2364
+						},
+						{
+							"type": "file",
+							"name": "helpers.color.d.ts",
+							"hash": "mgwtRQbhAxoH+d5d3oX4A4N90MdHEL7mzUzUtlWqEcs=",
+							"time": "1985-10-26T08:15:00.000Z",
+							"size": 676
+						},
+						{
+							"type": "file",
+							"name": "helpers.config.d.ts",
+							"hash": "9pqougbj/kNp8+cSbZnEoCPbzRtMLasRiSgzLtV6m4M=",
+							"time": "1985-10-26T08:15:00.000Z",
+							"size": 1767
+						},
+						{
+							"type": "file",
+							"name": "helpers.config.types.d.ts",
+							"hash": "JAU90JqLwxWg4wTrjveezzKZ+l8pepCA2jHVpJyWgug=",
+							"time": "1985-10-26T08:15:00.000Z",
+							"size": 1589
+						},
+						{
+							"type": "file",
+							"name": "helpers.core.d.ts",
+							"hash": "l9PEvSpJpW8stju3bFiAr+XHYJjcu1WYzRTpa/Vyy4Y=",
+							"time": "1985-10-26T08:15:00.000Z",
+							"size": 7134
+						},
+						{
+							"type": "file",
+							"name": "helpers.curve.d.ts",
+							"hash": "qJVYn9i6eRx7cp+Sry4UVrmFoOY+eVU8R1li97AlRBk=",
+							"time": "1985-10-26T08:15:00.000Z",
+							"size": 876
+						},
+						{
+							"type": "file",
+							"name": "helpers.dataset.d.ts",
+							"hash": "1nkKo0ZdmgYMslrj2v2/bdtxjbTq++JyRzyBDchmIhk=",
+							"time": "1985-10-26T08:15:00.000Z",
+							"size": 154
+						},
+						{
+							"type": "file",
+							"name": "helpers.dom.d.ts",
+							"hash": "7LTky5F6pnJe/q6VpIXKX5BSjusF9eT69MZ+R0wCyDA=",
+							"time": "1985-10-26T08:15:00.000Z",
+							"size": 2031
+						},
+						{
+							"type": "file",
+							"name": "helpers.easing.d.ts",
+							"hash": "7LrCbAx2Xh2j50ijXt7fpMfth/SDmZGc2VKui8MqEzk=",
+							"time": "1985-10-26T08:15:00.000Z",
+							"size": 1813
+						},
+						{
+							"type": "file",
+							"name": "helpers.extras.d.ts",
+							"hash": "hk/abkFq4zTw+xv3931Iz/le16vC0vMkCSuKLcihwUo=",
+							"time": "1985-10-26T08:15:00.000Z",
+							"size": 1872
+						},
+						{
+							"type": "file",
+							"name": "helpers.interpolation.d.ts",
+							"hash": "2z86rPQX8LU6b8NWsEyFXC8F7KaU57JrugxQb/EECjY=",
+							"time": "1985-10-26T08:15:00.000Z",
+							"size": 532
+						},
+						{
+							"type": "file",
+							"name": "helpers.intl.d.ts",
+							"hash": "8NK/Q2mzKDqTvePP9OLMIsXhgOdYfX8FVx88dyggWus=",
+							"time": "1985-10-26T08:15:00.000Z",
+							"size": 111
+						},
+						{
+							"type": "file",
+							"name": "helpers.math.d.ts",
+							"hash": "lvo+IiS2GwGc7j/8syOVPnXoi+zf4lnmhwAKs1BwqEI=",
+							"time": "1985-10-26T08:15:00.000Z",
+							"size": 2691
+						},
+						{
+							"type": "file",
+							"name": "helpers.options.d.ts",
+							"hash": "qdzRiw9pfUst77rOUhXNqGaSEp0/saAeA61og5Ookzk=",
+							"time": "1985-10-26T08:15:00.000Z",
+							"size": 4238
+						},
+						{
+							"type": "file",
+							"name": "helpers.rtl.d.ts",
+							"hash": "IU/kW1E9s5J0794EDN11XJvrHkOWcNlMbzPJCX/Y8Mk=",
+							"time": "1985-10-26T08:15:00.000Z",
+							"size": 585
+						},
+						{
+							"type": "file",
+							"name": "helpers.segment.d.ts",
+							"hash": "8+vwpx+54NcIxgfWRI7a56eJMWJTK1YLPzYfSLrNv8o=",
+							"time": "1985-10-26T08:15:00.000Z",
+							"size": 2194
+						},
+						{
+							"type": "file",
+							"name": "index.d.ts",
+							"hash": "yktc3h1GZiqyvpBl41OJn4I8SpkR4nLphf/65NWGiaI=",
+							"time": "1985-10-26T08:15:00.000Z",
+							"size": 619
+						}
+					]
+				},
+				{
+					"type": "directory",
+					"name": "platform",
+					"files": [
+						{
+							"type": "file",
+							"name": "index.d.ts",
+							"hash": "AIW8OXE4GXFdSbJ7tkdn3/GCkXmwkU7w1OGoUncPATY=",
+							"time": "1985-10-26T08:15:00.000Z",
+							"size": 283
+						},
+						{
+							"type": "file",
+							"name": "platform.base.d.ts",
+							"hash": "JWJ2IGkllKSbAacZJBblmg/ZRxfE9cKACjzd5Y4os58=",
+							"time": "1985-10-26T08:15:00.000Z",
+							"size": 3044
+						},
+						{
+							"type": "file",
+							"name": "platform.basic.d.ts",
+							"hash": "APm5XAdBCU72n4vvomgHf7Xa5RkhSdma9cer9M0g1eU=",
+							"time": "1985-10-26T08:15:00.000Z",
+							"size": 375
+						},
+						{
+							"type": "file",
+							"name": "platform.dom.d.ts",
+							"hash": "iVNv/uL/XUnNTImKhUqSo9CBI5T0q24dSPn7ZY9Kvkg=",
+							"time": "1985-10-26T08:15:00.000Z",
+							"size": 683
+						}
+					]
+				},
+				{
+					"type": "directory",
+					"name": "plugins",
+					"files": [
+						{
+							"type": "directory",
+							"name": "plugin.filler",
+							"files": [
+								{
+									"type": "file",
+									"name": "filler.drawing.d.ts",
+									"hash": "EufipVe9hjKN+J+WFyJvyCZHUvwCDdeK7hi/qRFZJjU=",
+									"time": "1985-10-26T08:15:00.000Z",
+									"size": 67
+								},
+								{
+									"type": "file",
+									"name": "filler.helper.d.ts",
+									"hash": "WBSr4I9mOMoaorHvEUO7HXqs5v07cnIUQAIogKsQVpg=",
+									"time": "1985-10-26T08:15:00.000Z",
+									"size": 587
+								},
+								{
+									"type": "file",
+									"name": "filler.options.d.ts",
+									"hash": "BQEmnsHqXaFMXYh/uzzPja1ZZtedRJgSyPstRO6v1qc=",
+									"time": "1985-10-26T08:15:00.000Z",
+									"size": 1317
+								},
+								{
+									"type": "file",
+									"name": "filler.segment.d.ts",
+									"hash": "1PNfGiq7HqCFHti9gWacuqjseuGAqvh2dPDEWvlg04o=",
+									"time": "1985-10-26T08:15:00.000Z",
+									"size": 792
+								},
+								{
+									"type": "file",
+									"name": "filler.target.d.ts",
+									"hash": "PMR9UK/ewHCqQOA0TqeytuG+vEmaGZuQZwCLIE1SYEU=",
+									"time": "1985-10-26T08:15:00.000Z",
+									"size": 479
+								},
+								{
+									"type": "file",
+									"name": "filler.target.stack.d.ts",
+									"hash": "M9+JV4eU+TqpwV43Mcsq4guzbN2gJxdCWcEIaXYonqg=",
+									"time": "1985-10-26T08:15:00.000Z",
+									"size": 521
+								},
+								{
+									"type": "file",
+									"name": "index.d.ts",
+									"hash": "oS0ajxtuNFl7mu8nV/30UFNiGJx1t/FSZmBKgLz/tC4=",
+									"time": "1985-10-26T08:15:00.000Z",
+									"size": 474
+								},
+								{
+									"type": "file",
+									"name": "simpleArc.d.ts",
+									"hash": "P+7TaOOo8CM7P/H1c+s0diwyNMCSsWIJ3dODEsBtVN0=",
+									"time": "1985-10-26T08:15:00.000Z",
+									"size": 246
+								}
+							]
+						},
+						{
+							"type": "file",
+							"name": "index.d.ts",
+							"hash": "UwBSfjLebqsobltww8ykdTgDIKFCrVTyNKNNqt/Huxw=",
+							"time": "1985-10-26T08:15:00.000Z",
+							"size": 410
+						},
+						{
+							"type": "file",
+							"name": "plugin.colors.d.ts",
+							"hash": "MIRM4HO7RraQj1UnMGORVinNeVv32DY4vLceFQeklLs=",
+							"time": "1985-10-26T08:15:00.000Z",
+							"size": 320
+						},
+						{
+							"type": "file",
+							"name": "plugin.decimation.d.ts",
+							"hash": "nGxFEhXq5q5O4Ov4Qz+dkElN99uodxhHjAUL9VUdoY8=",
+							"time": "1985-10-26T08:15:00.000Z",
+							"size": 292
+						},
+						{
+							"type": "file",
+							"name": "plugin.legend.d.ts",
+							"hash": "GT93/ZmleYEnkVUWNjlY0iffnLguI/WJCqZoQJweY2A=",
+							"time": "1985-10-26T08:15:00.000Z",
+							"size": 3239
+						},
+						{
+							"type": "file",
+							"name": "plugin.subtitle.d.ts",
+							"hash": "2NwMV2x5xQafToewoVCI6VIEPLPfDsSH+B5rmLF05QM=",
+							"time": "1985-10-26T08:15:00.000Z",
+							"size": 825
+						},
+						{
+							"type": "file",
+							"name": "plugin.title.d.ts",
+							"hash": "hLaejUvnsXNlNtGrjHLEgxi75sZ32rU6LVEFj55o33E=",
+							"time": "1985-10-26T08:15:00.000Z",
+							"size": 1727
+						},
+						{
+							"type": "file",
+							"name": "plugin.tooltip.d.ts",
+							"hash": "pJPNlC8pxFyb77HPLz6adXMA4fprWiDPk5v1Y8MfRqE=",
+							"time": "1985-10-26T08:15:00.000Z",
+							"size": 9963
+						}
+					]
+				},
+				{
+					"type": "directory",
+					"name": "scales",
+					"files": [
+						{
+							"type": "file",
+							"name": "index.d.ts",
+							"hash": "cPFSjdfSExOG/c9iI6wcVvLXcmx5d71e3c39Is0k9/Y=",
+							"time": "1985-10-26T08:15:00.000Z",
+							"size": 390
+						},
+						{
+							"type": "file",
+							"name": "scale.category.d.ts",
+							"hash": "dHbbyBS0ZIn/92D9Hz1kJIrtvxfob9qIg8m9BILYv3M=",
+							"time": "1985-10-26T08:15:00.000Z",
+							"size": 570
+						},
+						{
+							"type": "file",
+							"name": "scale.linear.d.ts",
+							"hash": "ivw9Ufis4La56JovfYpt/6ykHZFzPSNd6nwoNkowgaE=",
+							"time": "1985-10-26T08:15:00.000Z",
+							"size": 282
+						},
+						{
+							"type": "file",
+							"name": "scale.linearbase.d.ts",
+							"hash": "hSCz9MLGmLzvnHHUGKEcfL6Q17bX3q7SUal+5e9rIGg=",
+							"time": "1985-10-26T08:15:00.000Z",
+							"size": 538
+						},
+						{
+							"type": "file",
+							"name": "scale.logarithmic.d.ts",
+							"hash": "Ac1Y8oQv/slKfNhogftVld9LCDmbmegX0sJcL7lz/gk=",
+							"time": "1985-10-26T08:15:00.000Z",
+							"size": 648
+						},
+						{
+							"type": "file",
+							"name": "scale.radialLinear.d.ts",
+							"hash": "1J9UWL5ZoQzGCtADvrr6Ius34VSSAgsr6coHBVtsixA=",
+							"time": "1985-10-26T08:15:00.000Z",
+							"size": 1705
+						},
+						{
+							"type": "file",
+							"name": "scale.time.d.ts",
+							"hash": "CqSR1WqAEfz5Ukf4HMTgm0DP1alugCIQODR9o5Mei6Y=",
+							"time": "1985-10-26T08:15:00.000Z",
+							"size": 3712
+						},
+						{
+							"type": "file",
+							"name": "scale.timeseries.d.ts",
+							"hash": "gUlxlEwhsZEFlJxVKn3Vs1I1oXouuAkrgJ4vyqVOpOQ=",
+							"time": "1985-10-26T08:15:00.000Z",
+							"size": 1517
+						}
+					]
+				},
+				{
+					"type": "directory",
+					"name": "types",
+					"files": [
+						{
+							"type": "file",
+							"name": "animation.d.ts",
+							"hash": "OSsXpro/aH8ZuiB/F4QcmTBnAcwogvNhWjtCZobYVOY=",
+							"time": "1985-10-26T08:15:00.000Z",
+							"size": 997
+						},
+						{
+							"type": "file",
+							"name": "basic.d.ts",
+							"hash": "Xr9Edr6S8ADwDLn7edabq+b2rCo579sEqPNw4RAAPhk=",
+							"time": "1985-10-26T08:15:00.000Z",
+							"size": 95
+						},
+						{
+							"type": "file",
+							"name": "color.d.ts",
+							"hash": "nIjuu3W4K0zLlBLH4wNeQOGI6j19ywEP+HmGt/9ilVU=",
+							"time": "1985-10-26T08:15:00.000Z",
+							"size": 61
+						},
+						{
+							"type": "file",
+							"name": "geometric.d.ts",
+							"hash": "frJNqno9nzP7nyOrFmX6JRA6FxBIlW4puOj/sx5dwU0=",
+							"time": "1985-10-26T08:15:00.000Z",
+							"size": 880
+						},
+						{
+							"type": "file",
+							"name": "index.d.ts",
+							"hash": "6Hxw4ohHF0rwz0RIVEuYJtgQGIOUmZ0X7zjDRMuQInY=",
+							"time": "1985-10-26T08:15:00.000Z",
+							"size": 119283
+						},
+						{
+							"type": "file",
+							"name": "layout.d.ts",
+							"hash": "FU+H7asQT/APNulbNtAeAUpNdKxPwhnhJOK/JicJkmc=",
+							"time": "1985-10-26T08:15:00.000Z",
+							"size": 1635
+						},
+						{
+							"type": "file",
+							"name": "utils.d.ts",
+							"hash": "dMOlfYdIieLwQriblohxavcEyyNm11fq1YaYj2zJpiU=",
+							"time": "1985-10-26T08:15:00.000Z",
+							"size": 1059
+						}
+					]
+				},
+				{
+					"type": "file",
+					"name": "chart.cjs",
+					"hash": "yon+HNuU5NIh5KQCyCtwnLhPD0FsIURFUywISjLY61o=",
+					"time": "1985-10-26T08:15:00.000Z",
+					"size": 416507
+				},
+				{
+					"type": "file",
+					"name": "chart.cjs.map",
+					"hash": "8idnQPQd/bpDNNvtjFmvr/X2OHpmx5WZODPUyXJuAaQ=",
+					"time": "1985-10-26T08:15:00.000Z",
+					"size": 1026113
+				},
+				{
+					"type": "file",
+					"name": "chart.js",
+					"hash": "ArWpwWwmqgJlhNZOGLwpmAXrLoZbOCnauRRIRFWaW7U=",
+					"time": "1985-10-26T08:15:00.000Z",
+					"size": 408255
+				},
+				{
+					"type": "file",
+					"name": "chart.js.map",
+					"hash": "q1+bOMl1aRZCqe9KnxNsv8bnOD7OjrF/Awk2KSL0lv0=",
+					"time": "1985-10-26T08:15:00.000Z",
+					"size": 1025533
+				},
+				{
+					"type": "file",
+					"name": "chart.umd.js",
+					"hash": "7MPNHuuMNNIXjj9Z/WPsWj2ENYwRcwrwuZWNyIbXZSo=",
+					"time": "1985-10-26T08:15:00.000Z",
+					"size": 208518
+				},
+				{
+					"type": "file",
+					"name": "chart.umd.js.map",
+					"hash": "UPeISZvFhGlsI0THfpGvD4ClGOypPjEt27gAjXUl1/o=",
+					"time": "1985-10-26T08:15:00.000Z",
+					"size": 967669
+				},
+				{
+					"type": "file",
+					"name": "chart.umd.min.js",
+					"hash": "SERKgtTty1vsDxll+qzd4Y2cF9swY9BCq62i9wXJ9Uo=",
+					"time": "1985-10-26T08:15:00.000Z",
+					"size": 208522
+				},
+				{
+					"type": "file",
+					"name": "chart.umd.min.js.map",
+					"hash": "jDKN9J0pWTXIHWTTs21qwcIMOF8bpbTfPsEqJrPWTZs=",
+					"time": "1985-10-26T08:15:00.000Z",
+					"size": 967673
+				},
+				{
+					"type": "file",
+					"name": "helpers.cjs",
+					"hash": "Qy3Q6O03nKmlg6DWdW4p/vs/xgsrqumL9nx2/84yieA=",
+					"time": "1985-10-26T08:15:00.000Z",
+					"size": 6758
+				},
+				{
+					"type": "file",
+					"name": "helpers.cjs.map",
+					"hash": "hw/iQB/I85jSrbwv2IcU5wxCFRf/Qr/wdpN9lnargO4=",
+					"time": "1985-10-26T08:15:00.000Z",
+					"size": 226
+				},
+				{
+					"type": "file",
+					"name": "helpers.js",
+					"hash": "C/W+ZVp+H09zt2n5ehIMAv2/oTGzWYNPMzJWcFh/2Vs=",
+					"time": "1985-10-26T08:15:00.000Z",
+					"size": 2628
+				},
+				{
+					"type": "file",
+					"name": "helpers.js.map",
+					"hash": "u56o2opK5NvUmuOLtkteElsA8M372RWkeednGWYU1rk=",
+					"time": "1985-10-26T08:15:00.000Z",
+					"size": 98
+				},
+				{
+					"type": "file",
+					"name": "index.d.ts",
+					"hash": "h/QTQKDKxbVOSZs+pubQyy56u5q/X+rtxsTMYIzf3FQ=",
+					"time": "1985-10-26T08:15:00.000Z",
+					"size": 577
+				},
+				{
+					"type": "file",
+					"name": "index.umd.d.ts",
+					"hash": "lj2zpWaCgjV7bmvjW/ckr+Dgysx2vnz3itbJKMeMJIE=",
+					"time": "1985-10-26T08:15:00.000Z",
+					"size": 97
+				},
+				{
+					"type": "file",
+					"name": "types.d.ts",
+					"hash": "0KizcB7a3bfbKTW7E0Q5JytGIBOEV56wtT1m5KyDu/w=",
+					"time": "1985-10-26T08:15:00.000Z",
+					"size": 883
+				}
+			]
+		},
+		{
+			"type": "directory",
+			"name": "auto",
+			"files": [
+				{
+					"type": "file",
+					"name": "auto.cjs",
+					"hash": "lfEsYeBVMwKIstMSrkFAec6PHxeqkZH4n7j6ir2GCn0=",
+					"time": "1985-10-26T08:15:00.000Z",
+					"size": 170
+				},
+				{
+					"type": "file",
+					"name": "auto.d.ts",
+					"hash": "eEnC5MruHLcYkM6rlbdnxo9xEOrp4+l22sgkhwInYhg=",
+					"time": "1985-10-26T08:15:00.000Z",
+					"size": 97
+				},
+				{
+					"type": "file",
+					"name": "auto.js",
+					"hash": "fhlNvlNuMzy0QeLUdzTlv/HTesgViGt8xsstdjI+F8o=",
+					"time": "1985-10-26T08:15:00.000Z",
+					"size": 147
+				},
+				{
+					"type": "file",
+					"name": "package.json",
+					"hash": "SvXvNZJB393WF+k+ueP1YY372DIOCU4UCbkrGX8Lsmg=",
+					"time": "1985-10-26T08:15:00.000Z",
+					"size": 393
+				}
+			]
+		},
+		{
+			"type": "file",
+			"name": "LICENSE.md",
+			"hash": "QahKosq6ZF+WahjZwgVrc+bTqB2AvABGvAARomNNTM4=",
+			"time": "1985-10-26T08:15:00.000Z",
+			"size": 1093
+		},
+		{
+			"type": "file",
+			"name": "package.json",
+			"hash": "J++S938UfaKJfWrehvhLHqLrFBk9B3Zo4elH4D8MoMk=",
+			"time": "1985-10-26T08:15:00.000Z",
+			"size": 4293
+		},
+		{
+			"type": "file",
+			"name": "README.md",
+			"hash": "MEGCMq0sxaUfoJOOEtyX4xz9H7OwvDUhMvKBwMENo0g=",
+			"time": "1985-10-26T08:15:00.000Z",
+			"size": 2605
+		}
+	]
+}

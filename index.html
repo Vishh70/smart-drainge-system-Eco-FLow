@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoFlow | Smart Drainage Operations Center</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="design-system.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css">
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.5.1/dist/chart.umd.min.js"></script>
+</head>
+
+<body>
+    <header class="mobile-topbar">
+        <h1>EcoFlow</h1>
+        <button class="btn btn-primary" data-action="toggle-sidebar" aria-label="Toggle navigation menu">Menu</button>
+    </header>
+
+    <div class="app-shell">
+        <aside class="sidebar" aria-label="Primary navigation">
+            <div class="brand">
+                <h1>EcoFlow Control Room</h1>
+                <p>Civic Ops Futurism Dashboard</p>
+            </div>
+            <nav>
+                <ul class="nav-list" id="sidebar-nav">
+                    <li><button class="nav-btn" data-action="nav-route" data-nav-route="/dashboard">📡
+                            Dashboard</button></li>
+                    <li><button class="nav-btn" data-action="nav-route" data-nav-route="/analytics">📊
+                            Analytics</button></li>
+                    <li><button class="nav-btn" data-action="nav-route" data-nav-route="/admin">🛠️ Admin
+                            Control</button></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <div class="main-pane">
+            <section class="kpi-strip" id="kpi-strip" aria-label="System KPI strip"></section>
+
+            <div class="content-wrap">
+                <section id="global-filters" aria-label="Global filters"></section>
+                <main id="app-root" aria-live="polite"></main>
+            </div>
+        </div>
+    </div>
+
+    <noscript>
+        <div class="content-wrap">
+            <article class="card error-card">
+                <h3>JavaScript Required</h3>
+                <p>This dashboard needs JavaScript enabled to run the simulation and live visualizations.</p>
+            </article>
+        </div>
+    </noscript>
+
+    <script src="data.js"></script>
+
+    <script src="js/core/events.js"></script>
+    <script src="js/core/store.js"></script>
+    <script src="js/core/router.js"></script>
+    <script src="js/core/persistence.js"></script>
+
+    <script src="js/sim/scenarios.js"></script>
+    <script src="js/sim/rules.js"></script>
+    <script src="js/sim/engine.js"></script>
+
+    <script src="js/widgets/toast.js"></script>
+    <script src="js/widgets/mapWidget.js"></script>
+    <script src="js/widgets/chartsWidget.js"></script>
+
+    <script src="js/views/dashboardView.js"></script>
+    <script src="js/views/analyticsView.js"></script>
+    <script src="js/views/adminView.js"></script>
+
+    <script src="js/app.js"></script>
+</body>
+
+</html>
